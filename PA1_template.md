@@ -125,6 +125,29 @@ hist(q1_a$totalSteps,
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
+```r
+#Also, write to file
+plot1 <- "./figure/histo_1.png"
+
+
+png(plot1, width = 480, height = 480, units = "px")
+
+hist(q1_a$totalSteps, 
+     xlim = c(0,25000),
+     ylim = c(0,20),
+     nclass = 15,
+     main = "Histogram of number of steps in  a day",
+     xlab = "Number of steps per day ",
+     ylab = "Count of days")
+
+dev.off()
+```
+
+```
+## pdf 
+##   2
+```
+
 ####1.b. Mean and median number of steps taken per day 
 
 
@@ -178,6 +201,28 @@ plot(q2_a$intervalStart, q2_a$AvgSteps,
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+
+```r
+#Also, write to file
+plot1 <- "./figure/histo_2.png"
+
+
+png(plot1, width = 480, height = 480, units = "px")
+
+plot(q2_a$intervalStart, q2_a$AvgSteps,
+     main = "Average number of steps over 5-min interval",
+     xlab = "Interval Start", 
+     ylab = "Average Number of steps in 5-min interval",
+     type = "l")
+
+
+dev.off()
+```
+
+```
+## pdf 
+##   2
+```
 
 ####2.b. Time interval with maximum number of steps
 
@@ -302,6 +347,32 @@ hist(q3_a$totalSteps,
 ![](./PA1_template_files/figure-html/cleanHistogram-1.png) 
 
 ```r
+#Also, write to a file
+
+plot1 <- "./figure/hist_3.png"
+
+
+png(plot1, width = 480, height = 480, units = "px")
+
+hist(q3_a$totalSteps, 
+     xlim = c(0,25000),
+     ylim = c(0,30),
+     nclass = 15,
+     main = "CleanedUp Data: Total steps in  a day",
+     xlab = "Number of steps per day ",
+     ylab = "Count of days")
+
+
+
+dev.off()
+```
+
+```
+## pdf 
+##   2
+```
+
+```r
 #Get the mean, mediansteps per day
 mn3 <- format(mean(q3_a$totalSteps), digits = 6)
 md3 <- format(median(q3_a$totalSteps), digits = 6)
@@ -408,6 +479,40 @@ plot(q4_b$intervalStart, q4_b$AvgSteps,
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+
+```r
+#Do the same into a file as well
+
+plot1 <- "./figure/line_4.png"
+
+
+png(plot1, width = 480, height = 480, units = "px")
+
+
+par(mfrow=c(2,1))
+
+#Top: weekday plot
+plot(q4_a$intervalStart, q4_a$AvgSteps,
+     main = "Weekday: Average number of steps over 5-min interval",
+     xlab = "Interval", 
+     ylab = "Avg steps in 5-min",
+     type = "l")
+
+#Bottom: weekend plot
+
+plot(q4_b$intervalStart, q4_b$AvgSteps,
+     main = "Weekend: Average number of steps over 5-min interval",
+     xlab = "Interval", 
+     ylab = "Avg steps in 5-min",
+     type = "l")
+
+dev.off()
+```
+
+```
+## pdf 
+##   2
+```
 
 
 And, **yes**,  there is a difference in how much the person walks on weekdays versus weekends.
